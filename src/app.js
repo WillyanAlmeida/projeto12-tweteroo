@@ -58,9 +58,8 @@ const tweets = [
 app.get ('/tweets', (req, res)=>{
     
 
-    let lasttweets = tweets.filter(user => user.username === "luffy");
-    console.log(lasttweets)
-    res.send(lasttweets)
+    let lasttweets = tweets.slice(-10);
+        res.send(lasttweets)
 
 })
 
