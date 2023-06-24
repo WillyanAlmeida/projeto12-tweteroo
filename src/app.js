@@ -7,7 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 app.listen(5000, ()=> console.log("server on"));
-// const user = [{
+ const user = [
+	//{
 // 	username: 'luffy', 
 // 	avatar: "https://epipoca.com.br/wp-content/uploads/2021/11/luffy-12112021.jpg" 
 // },
@@ -34,7 +35,8 @@ app.listen(5000, ()=> console.log("server on"));
 // {
 // 	username: 'robin', 
 // 	avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkchi3a-zyswQnx_89NjMMoG9uiEMo8mBNzw" 
-// }];
+// }
+];
 
 const tweets = [
 	// {
