@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json())
 app.listen(5000, ()=> console.log("server on"));
  const user = [
-	//{
+// 	{
 // 	username: 'luffy', 
 // 	avatar: "https://epipoca.com.br/wp-content/uploads/2021/11/luffy-12112021.jpg" 
 // },
@@ -39,18 +39,18 @@ app.listen(5000, ()=> console.log("server on"));
 ];
 
 const tweets = [
-	// {
-	// 	username: "luffy",
-	// 	tweet: "Eu serei o rei dos piratas!"
-	// },
-    // {
-	// 	username: "luffy",
-	// 	tweet: "quero caaarne!"
-	// },
-    // {
-	// 	username: "luffy",
-	// 	tweet: "gumo gumo no pistol!"
-	// }
+	//  {
+	//  	username: "luffy",
+	//  	tweet: "Eu serei o rei dos piratas!"
+	//  },
+    //  {
+	//  	username: "luffy",
+	//  	tweet: "quero caaarne!"
+	//  },
+    //  {
+	//  	username: "luffy",
+	//  	tweet: "gumo gumo no pistol!"
+	//  }
 ]
 
 
@@ -58,9 +58,13 @@ const tweets = [
 app.get ('/tweets', (req, res)=>{
     
 
-    let lasttweets = tweets.slice(-10);
+    let aux = tweets.slice(-10);
+	let lasttweets=[]
+	aux.forEach((x) => {		
+		 let y = user.find((users)=> users.username === x.username)		 
+		 lasttweets.push({username: x.username, tweet: x.tweet, avatar: y.avatar})
+		 })		
         res.send(lasttweets)
-
 })
 
 app.post ('/sign-up', (req, res)=>{
@@ -70,12 +74,9 @@ app.post ('/sign-up', (req, res)=>{
 		res.status(400).send('Todos os campos são obrigatórios!')
 		return
 	}
-
     let newuser = {username, avatar}
     user.push(newuser)
 	res.status(201).send("OK")
-
-
 })
 
 app.post ('/tweets', (req, res)=>{
