@@ -8,49 +8,53 @@ app.use(cors());
 app.use(express.json())
 app.listen(5000, ()=> console.log("server on"));
  const user = [
-// 	{
-// 	username: 'luffy', 
-// 	avatar: "https://epipoca.com.br/wp-content/uploads/2021/11/luffy-12112021.jpg" 
-// },
-// {
-// 	username: 'ace', 
-// 	avatar: "https://aniyuki.com/wp-content/uploads/2021/12/aniyuki-portgas.d.ace-42.jpg" 
-// },
-// {
-// 	username: 'sabo', 
-// 	avatar: "https://www.comboinfinito.com.br/principal/wp-content/uploads/2019/09/One-Piece-3.jpg" 
-// },
-// {
-// 	username: 'zoro', 
-// 	avatar: "https://static.wikia.nocookie.net/onepiece/images/6/64/Roronoa_Zoro_Anime_Pre_Timeskip_Infobox.png/revision/latest?cb=20181209230036&path-prefix=pt" 
-// },
-// {
-// 	username: 'sanji', 
-// 	avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJ5T6D_9bhZ53qfNzrg-5JxNP2xH4q1VX5w" 
-// },
-// {
-// 	username: 'nami', 
-// 	avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqaru7z-aQg-LhF9-ftq8MSh919vxSSLv11A" 
-// },
-// {
-// 	username: 'robin', 
-// 	avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkchi3a-zyswQnx_89NjMMoG9uiEMo8mBNzw" 
-// }
+//  	{
+//  	username: 'luffy', 
+//  	avatar: "https://epipoca.com.br/wp-content/uploads/2021/11/luffy-12112021.jpg" 
+//  },
+//  {
+//  	username: 'ace', 
+//  	avatar: "https://aniyuki.com/wp-content/uploads/2021/12/aniyuki-portgas.d.ace-42.jpg" 
+//  },
+//  {
+//  	username: 'sabo', 
+//  	avatar: "https://www.comboinfinito.com.br/principal/wp-content/uploads/2019/09/One-Piece-3.jpg" 
+//  },
+//  {
+//  	username: 'zoro', 
+//  	avatar: "https://static.wikia.nocookie.net/onepiece/images/6/64/Roronoa_Zoro_Anime_Pre_Timeskip_Infobox.png/revision/latest?cb=20181209230036&path-prefix=pt" 
+//  },
+//  {
+//  	username: 'sanji', 
+//  	avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJ5T6D_9bhZ53qfNzrg-5JxNP2xH4q1VX5w" 
+//  },
+//  {
+//  	username: 'nami', 
+//  	avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqaru7z-aQg-LhF9-ftq8MSh919vxSSLv11A" 
+//  },
+//  {
+//  	username: 'robin', 
+//  	avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkchi3a-zyswQnx_89NjMMoG9uiEMo8mBNzw" 
+//  }
 ];
 
 const tweets = [
-	//  {
-	//  	username: "luffy",
-	//  	tweet: "Eu serei o rei dos piratas!"
-	//  },
-    //  {
-	//  	username: "luffy",
-	//  	tweet: "quero caaarne!"
-	//  },
-    //  {
-	//  	username: "luffy",
-	//  	tweet: "gumo gumo no pistol!"
-	//  }
+	//   {
+	//   	username: "luffy",
+	//   	tweet: "Eu serei o rei dos piratas!"
+	//   },
+    //   {
+	//   	username: "luffy",
+	//   	tweet: "quero caaarne!"
+	//   },
+    //   {
+	//   	username: "luffy",
+	//   	tweet: "gumo gumo no pistol!"
+	//   },
+	//   {
+	// 	username: "zoro",
+	// 	tweet: "kd a bebida?!"
+	// }
 ]
 
 
@@ -68,9 +72,10 @@ app.get ('/tweets', (req, res)=>{
 })
 
 app.get ('/tweets/:USERNAME', (req, res)=>{
-    let {nameuser}= req.params
+    let {USERNAME}= req.params
+	console.log(USERNAME)
 
-	let arrayuser = tweets.filter((users)=> users.username === nameuser)	
+	let arrayuser = tweets.filter((users)=> users.username === USERNAME)	
 
     let aux = arrayuser.slice(-10);
 	let lasttweets=[]
