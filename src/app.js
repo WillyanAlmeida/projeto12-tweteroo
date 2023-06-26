@@ -84,7 +84,7 @@ app.get ('/tweets/:USERNAME', (req, res)=>{
 app.post ('/sign-up', (req, res)=>{
 	let {username, avatar} = req.body
 
-	if(!typeof(username)===string || !typeof(avatar)===string ){
+	if(!typeof(username)==='string' || !typeof(avatar)==='string' ){
 		res.status(400).send('Todos os campos são obrigatórios!')
 		return
 	}
