@@ -67,8 +67,27 @@ app.get ('/tweets', (req, res)=>{
         res.send(lasttweets)
 })
 
+app.get ('/tweets/:USERNAME', (req, res)=>{
+    let {nameuser}= req.params
+
+	let arrayuser = tweets.filter((users)=> users.username === nameuser)	
+
+    let aux = arrayuser.slice(-10);
+	let lasttweets=[]
+	aux.forEach((x) => {		
+		 let y = user.find((users)=> users.username === x.username)		 
+		 lasttweets.push({username: x.username, tweet: x.tweet, avatar: y.avatar})
+		 })		
+        res.send(lasttweets)
+})
+
 app.post ('/sign-up', (req, res)=>{
 	let {username, avatar} = req.body
+
+	if(!typeof(username)===string || !typeof(avatar)===string ){
+		res.status(400).send('Todos os campos são obrigatórios!')
+		return
+	}
 
 	if(!username || !avatar){
 		res.status(400).send('Todos os campos são obrigatórios!')
